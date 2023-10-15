@@ -1,0 +1,7 @@
+import java.math.*;
+class Solution {
+    public String convertToBase7(int num) {
+        BigInteger answer = new BigInteger("" + num);
+        return answer.toString(7);
+    }
+}
