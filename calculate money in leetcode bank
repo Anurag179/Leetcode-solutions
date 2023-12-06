@@ -1,0 +1,19 @@
+cpublic class Solution {
+    public int totalMoney(int days) {
+        int totalMoney = 0, weekNumber = 0;
+        while (days > 0) {
+            if (days < 7) {
+                totalMoney += calculateTotal(days + weekNumber, weekNumber);
+                days = 0;
+            } else {
+                totalMoney += calculateTotal(7 + weekNumber, weekNumber);
+                days -= 7;
+                weekNumber++;
+            }
+        }
+        return totalMoney;
+    }
+    private int calculateTotal(int currentDayAmount, int weekNumber) {
+        return (currentDayAmount * (currentDayAmount + 1) / 2) - (weekNumber * (weekNumber + 1) / 2);
+    }
+}
